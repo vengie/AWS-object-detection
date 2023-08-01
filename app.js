@@ -123,7 +123,7 @@ document.getElementById('upload-button').addEventListener('click', () => {
 
 
 
-// Function to upload the captured images to S3
+/// Function to upload the captured images to S3
 async function uploadImagesToS3() {
     // Clear all existing error messages
     clearErrors();
@@ -149,10 +149,14 @@ async function uploadImagesToS3() {
     }
 
     try {
-        // Configure AWS S3
+        // Configure AWS S3 using environment variables (replace with your actual environment variable names)
+        const awsRegion = process.env.AWS_REGION;
+        const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+        const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
+
         AWS.config.update({
-            region: 'us-east-1',
-            credentials: new AWS.Credentials('YAKIA24YW2A2VUF2HTQXF', 'YlKQftl5P/XhIlj7DldVXYNK7rFkCq+rQQelz56Iw'),
+            region: awsRegion,
+            credentials: new AWS.Credentials(accessKeyId, secretAccessKey),
         });
 
         const s3 = new AWS.S3();
@@ -170,7 +174,7 @@ async function uploadImagesToS3() {
 
             // Set S3 bucket and object parameters
             const params = {
-                Bucket: 'sagemaker-custome-s3',
+                Bucket: 'sagemaker-custome-s3', // Replace with your actual S3 bucket name
                 Key: fileName,
                 Body: imageBuffer,
                 ACL: 'public-read', // Set appropriate access control for your use case
@@ -197,3 +201,6 @@ async function uploadImagesToS3() {
 
 // Call the function to initialize the webcam
 initializeWebcam();
+
+// Event listener for the "Upload Image to S3" button
+document.getElementById('upload-button').addEventListener('click', uploadImagesToS3);
