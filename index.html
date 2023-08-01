@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Image Upload to S3</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--<style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #webcam-preview {
+            border: 2px solid #333;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        label, input {
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .upload-status {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>-->
+</head>
+<body>
+    <h1>Webcam Image Upload to S3</h1>
+
+    <!-- Move Dataset Name and Label input fields to the same level -->
+    <label for="dataset-name">Dataset Name:</label>
+    <input type="text" id="dataset-name" name="dataset-name">
+
+    <!-- Error message for dataset name -->
+    <!--<div class="error-message" id="dataset-name-error"></div>-->
+
+    <label for="label">Label Name:</label>
+    <input type="text" id="label" name="label">
+
+    <!-- Error message for label -->
+    <!--<div class="error-message" id="label-error"></div>-->
+
+    <video id="webcam-preview" width="640" height="480" autoplay></video>
+    <button id="start-webcam-button">Start Webcam</button>
+    <button id="stop-webcam-button" disabled>Stop Webcam</button>
+    <button id="capture-button" disabled>Capture Image</button>
+    <button id="upload-button" disabled>Upload Image to S3</button>
+    <!-- Error message for the "Upload Image to S3" button -->
+    <div class="error-message" id="upload-button-error"></div>
+
+    <div class="upload-status" id="upload-status"></div>
+
+    <!-- Container to show captured images -->
+    <div id="captured-images-container"></div>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1204.0.min.js"></script>
+    <script src="app.js"></script>
+    <!--<script>
+        const datasetNameInput = document.getElementById('dataset-name');
+        const labelInput = document.getElementById('label');
+        const captureButton = document.getElementById('capture-button');
+        const uploadButton = document.getElementById('upload-button');
+
+        // Enable buttons when both inputs have valid values
+        function enableButtons() {
+            const isInputsValid = datasetNameInput.value.trim() !== '' && labelInput.value.trim() !== '';
+            captureButton.disabled = !isInputsValid;
+            uploadButton.disabled = !isInputsValid;
+        }
+
+        // Validate inputs on change
+        datasetNameInput.addEventListener('input', enableButtons);
+        labelInput.addEventListener('input', enableButtons);
+
+        // ... (Previous code remains unchanged)
+
+        // Capture an image from the webcam
+        let capturedImage = null;
+        captureButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+            capturedImage = canvas.toDataURL('image/jpeg');
+        });
+
+        // Upload the captured image to S3 with Dataset Name and Label
+        uploadButton.addEventListener('click', () => {
+            // ... (Previous code remains unchanged)
+
+            // Show success message after successful upload
+            showUploadStatus('Image uploaded successfully!');
+        });
+
+        // Call the function to initialize the webcam
+        initializeWebcam();
+    </script>-->
+</body>
+</html>
