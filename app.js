@@ -96,9 +96,35 @@ function clearErrors() {
     }
 }
 
+
+
+
+// Function to show success message after successful upload
+function showUploadStatus(message) {
+    const uploadStatusDiv = document.getElementById('upload-status');
+    uploadStatusDiv.textContent = message;
+}
+
+// ... (Other functions remain unchanged)
+
+// Event listener for the "Capture Image" button
+document.getElementById('capture-button').addEventListener('click', () => {
+    const capturedImage = captureImage();
+    showCapturedImage(capturedImage);
+});
+// ... (Other functions remain unchanged)
+
+//Event listener for the "Upload Image to S3" button
+//document.getElementById('upload-button').addEventListener('click', uploadImagesToS3);;
+document.getElementById('upload-button').addEventListener('click', () => {
+    const uploadImage = uploadImagesToS3();
+    uploadImagesToS3(uploadImage);
+});
+
+
+
 // Function to upload the captured images to S3
 async function uploadImagesToS3() {
-
     // Clear all existing error messages
     clearErrors();
 
@@ -107,22 +133,26 @@ async function uploadImagesToS3() {
     const capturedImages = document.getElementsByClassName('captured-image-thumbnail');
 
     // Validate inputs
-    if (datasetNameInput.value.trim() === '' || labelInput.value.trim() === '') {
-        showError('Please enter Dataset Name and Label before uploading.');
+    if (datasetNameInput.value.trim() === '') {
+        showError('dataset-name', 'Please enter Dataset Name.');
+        return;
+    }
+
+    if (labelInput.value.trim() === '') {
+        showError('label', 'Please enter Label.');
         return;
     }
 
     if (capturedImages.length === 0) {
-        showError('No images to upload. Please capture at least one image.');
+        showError('upload-status', 'No images to upload. Please capture at least one image.');
         return;
     }
-
 
     try {
         // Configure AWS S3
         AWS.config.update({
             region: 'us-east-1',
-            credentials: new AWS.Credentials('AKIA24YW2A2VUF2HTQXF', 'lKQftl5P/XhIlj7DldVXYNK7rFkCq+rQQelz56Iw'),
+            credentials: new AWS.Credentials('YAKIA24YW2A2VUF2HTQXF', 'YlKQftl5P/XhIlj7DldVXYNK7rFkCq+rQQelz56Iw'),
         });
 
         const s3 = new AWS.S3();
@@ -165,26 +195,5 @@ async function uploadImagesToS3() {
     }
 }
 
-// Function to show success message after successful upload
-function showUploadStatus(message) {
-    const uploadStatusDiv = document.getElementById('upload-status');
-    uploadStatusDiv.textContent = message;
-}
-
-// ... (Other functions remain unchanged)
-
-// Event listener for the "Capture Image" button
-document.getElementById('capture-button').addEventListener('click', () => {
-    const capturedImage = captureImage();
-    showCapturedImage(capturedImage);
-});
-// ... (Other functions remain unchanged)
-
-//Event listener for the "Upload Image to S3" button
-//document.getElementById('upload-button').addEventListener('click', uploadImagesToS3);;
-document.getElementById('upload-button').addEventListener('click', () => {
-    const uploadImage = uploadImagesToS3();
-    uploadImagesToS3(uploadImage);
-});
 // Call the function to initialize the webcam
 initializeWebcam();
