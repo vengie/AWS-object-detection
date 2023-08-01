@@ -121,8 +121,8 @@ async function uploadImagesToS3() {
     try {
         // Configure AWS S3
         AWS.config.update({
-            region: 'YOUR_AWS_REGION',
-            credentials: new AWS.Credentials('YOUR_ACCESS_KEY_ID', 'YOUR_SECRET_ACCESS_KEY'),
+            region: 'us-east-1',
+            credentials: new AWS.Credentials('AKIA24YW2A2VUF2HTQXF', 'lKQftl5P/XhIlj7DldVXYNK7rFkCq+rQQelz56Iw'),
         });
 
         const s3 = new AWS.S3();
@@ -140,7 +140,7 @@ async function uploadImagesToS3() {
 
             // Set S3 bucket and object parameters
             const params = {
-                Bucket: 'YOUR_S3_BUCKET_NAME',
+                Bucket: 'sagemaker-custome-s3',
                 Key: fileName,
                 Body: imageBuffer,
                 ACL: 'public-read', // Set appropriate access control for your use case
