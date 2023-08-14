@@ -1,0 +1,216 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+#data_collection_div {
+    text-align: center;
+}
+
+#start_collection_btn {
+    margin-top: 10px;
+}
+
+/* Add styles for the thumbnail container */
+#image_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* .thumbnail {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+/* Add styles for the webcam video and canvas elements */
+#webcam_video {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+
+#webcam_canvas {
+    display: none;
+}
+
+/* Add styles for the captured images container and thumbnails */
+/* #captured_images_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+} */
+
+
+
+
+/* .thumbnail {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+} */
+
+/* .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+
+/* Add styles for image name label */
+.thumbnail .image-name {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Modify styles for the captured images container and thumbnails */
+#captured_images_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+  overflow-x: scroll;
+}
+
+.thumbnail {
+  flex: 0 0 auto;
+  height: 150px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stack image and label vertically */
+}
+
+.thumbnail img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin: 50px auto;
+  max-width: 400px;
+}
+
+.button {
+  /* background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px; */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.button.red {
+  background-color: #f44336;
+}
+
+.button.red:hover {
+  background-color: #d32f2f;
+}
+
+/* main page */
+/* body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .container {
+    margin: 50px auto;
+    max-width: 400px;
+  }
+  
+  .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .button.red {
+    background-color: #f44336;
+  }
+  
+  .button.red:hover {
+    background-color: #d32f2f;
+  }
+   */
+
+
+   /* Add styles for the modal overlay */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: 0 auto;
+}

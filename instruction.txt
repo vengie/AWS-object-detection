@@ -1,0 +1,27 @@
+#install the venv
+pip install virtualenv
+
+#create
+python -m venv venv  
+
+#activate
+venv\Scripts\activate
+
+#recreate
+pip install -r requirements.txt
+
+$ pip install -r requirements.txt
+# Run local server
+$ python run.py
+# Build static content
+$ python freeze.py
+
+
+Fork the upstream repository and clone your fork
+Create a feature branch for the thing you want to work on
+Create a virtual environment and activate it
+Run pip install -e . to install dependencies
+Use tox or python -m flask_frozen.tests to run tests
+Do your changes, make sure tests pass
+Send a Pull Request to the upstream repository
+Status
