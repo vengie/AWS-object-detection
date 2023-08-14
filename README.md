@@ -1,1 +1,1 @@
-# AWS-object-detection
+#Flask Data Collection for real-time Object Recognition 
