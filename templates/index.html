@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group-5 Data Collection</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Collection</h1>
+        <div id="data_collection_div">
+            <label for="class_label">Label: </label>
+            <input type="text" id="class_label" placeholder="Enter class name" required>
+            <br>
+            <label for="image_count">No. of Images to Capture: </label>
+            <input type="number" id="image_count" required min="1" value="3">
+            <br>
+            <button id="start_collection_btn">Start Collection</button>
+            <!-- Add a container to display the collected images -->
+        </div>
+        <!-- Add the video element to display the webcam stream -->
+        <video id="webcam_video" width="640" height="480" style="display: none;"></video>
+        <canvas id="webcam_canvas" width="640" height="480"></canvas>
+        <div id="captured_images_container"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
